@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>Transform:translate</title>
+    <style>
+			.origin {
+				width: 100px;
+				height: 100px;
+				border: 1px solid black;
+				float: left;
+				margin: 40px;
+        perspective:200px;
+        /* perspective 통하여 원근감(입체감)을 추가해줌 */
+			}
+			.origin > div {				
+				width:100px;
+				height:100px;
+				background-color:orange;
+        transition:all 3s; /* 3초동안 회전하게끔 적용해줌 */
+			}
+      #movex:hover {
+        /* translateX,Y,Z로 각 축 이동
+           scaleX,Y,Z로 각 축으로 확장
+           skewX,Y,Z로 각 축으로 비트는 느낌
+        transform: translateX(50px);  
+        transform: scaleX(2);
+        transform:rotateX(55deg);
+        */
+        transform:skewX(30deg);
+      }
+      #movey:hover {
+        /*
+        transform: translateY(20px);  
+        transform:scaleY(1.5);
+        transform:rotateY(55deg);
+        */
+        transform:skewY(15deg);
+      }
+      #movexy:hover {
+        /*
+        transform: translate(10px, 20px); 
+        transform:scaleZ(0.7);
+        transform:rotateZ(55deg);
+        */
+        transform:skew(25deg,30deg);
+      }
+		</style>
+	</head>
+	<body>		
+		<div>
+			<div class="origin">
+				<div  id="movex"></div>		
+			</div>
+			<div class="origin">
+				<div id="movey"></div>	
+			</div>
+			<div class="origin">
+				<div id="movexy"></div>		
+			</div>
+		</div>
+		</div>
+	</body>
+</html>

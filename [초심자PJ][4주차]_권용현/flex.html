@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>플렉스 박스 레이아웃</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .container {
+        width: 700px;
+        height: 300px;
+        background-color: #eee;
+        border: 1px solid #222;
+        margin-bottom: 30px;
+        display: flex;
+        /*
+        flex 다루는 방법들
+
+        flex-direction: row;
+        flex-wrap: wrap-reverse;
+        align-content: stretch;
+        */
+        justify-content: space-around;
+        align-items: stretch;
+      }
+      .box {
+        margin: 5px;
+        width: 100px;
+        height: 100px;
+        background-color: #222;
+      }
+      p {
+        color: #fff;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="opt1">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+    </div>
+  </body>
+</html>
