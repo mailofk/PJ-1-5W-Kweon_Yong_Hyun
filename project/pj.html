@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>project making</title>
+    <link href="css/pjcss.css" rel="stylesheet" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dongle&family=Gaegu&family=Long+Cang&display=swap");
+    </style>
+  </head>
+  <body onload="makeTime()">
+    <div id="container">
+      <header>
+        <div id="title_ui">
+          <h1 id="title">휴식 공간</h1>
+        </div>
+        <div id="login_ui">
+          <button id="login_go">
+            <a href="#">Login</a>
+          </button>
+        </div>
+      </header>
+      <main>
+        <section>
+          <div id="guess_game">
+            <div id="guess_left">
+              <div id="guess_info">1~50 중의 수를 하나 골라주세요.</div>
+              <input type="number" id="guess_input" />
+              <div id="guess_buttons">
+                <button id="guess_input_button">입력</button>
+                <button id="guess_reset">초기화</button>
+              </div>
+            </div>
+            <div id="guess-right">
+              <div class="guess_rank">
+                🥇1st🥇 <span id="guess_first">none</span>
+              </div>
+              <div class="guess_rank">
+                🥈2nd🥈 <span id="guess_second">none</span>
+              </div>
+              <div class="guess_rank">
+                🥉3rd🥉 <span id="guess_third">none</span>
+              </div>
+            </div>
+          </div>
+          <div id="fortune_title">🍀 당신의 운세 🍀</div>
+          <div id="hint">
+            <img id="hint_img" src="img/dog1.jpeg" />
+            <div class="talk_balloon">
+              <div id="fortune"></div>
+            </div>
+          </div>
+        </section>
+        <aside>
+          <p id="today">Today</p>
+          <p id="today_date"></p>
+          <p id="today_time"></p>
+          <h1 id="link_title">바로가기</h1>
+          <div id="links">
+            <a href="https://www.naver.com/" target="_blank"
+              ><img class="link_img" src="img/naver.jpeg"
+            /></a>
+            <span class="link_name">네이버</span>
+            <a href="https://www.google.com/" target="_blank"
+              ><img class="link_img" src="img/google.jpeg"
+            /></a>
+            <span class="link_name">구글</span>
+            <a href="http://www.sejong.ac.kr/" target="_blank"
+              ><img class="link_img" src="img/sejong.jpeg"
+            /></a>
+            <span class="link_name">세종대학교</span>
+          </div>
+        </aside>
+      </main>
+      <footer>
+        <div id="introduce">
+          Made by 👇
+          <p id="introduce_name">세종대학교 지능기전공학부 21011859 권용현</p>
+        </div>
+        <a href="https://github.com/mailofk" target="_blank"
+          ><img src="img/github.jpeg" id="github_img"
+        /></a>
+      </footer>
+    </div>
+    <script>
+      function makeTime() {
+        today = document.getElementById("today_date");
+        let date = new Date();
+        full_date =
+          date.getFullYear() +
+          "년 " +
+          (date.getMonth() + 1) +
+          "월 " +
+          date.getDate() +
+          "일";
+        today.innerText = full_date;
+        time = document.getElementById("today_time");
+        let hour = date.getHours();
+        if (hour > 12) full_time = "오후 " + (hour - 12);
+        else if (hour == 0) full_time = "오전 12";
+        else full_time = "오전 " + hour;
+        full_time +=
+          "시 " + date.getMinutes() + "분 " + date.getSeconds() + "초";
+        time.innerText = full_time;
+        setTimeout(makeTime, 1000);
+      }
+
+      fortune_list = [
+        "봄에 뿌린 씨가 자라나 풍요로운 추수를 할 운세입니다. 그동안의 노력에 대한 보답을 기대해 좋으니, 하는 일에 최선을 다해 집중하세요.",
+        "좋은 기운이 감도는 한 주라 모든 일이 잘 풀릴 테니 들뜨지 마시고 겸손하게 잘 받으세요.",
+        "자신감을 가지고 소신 있게 행동하시면 원하는 방향으로 모든 일이 순조롭게 풀릴 좋은 운세입니다.",
+        "마음이 여유로워 가정과 직장에 모든 것이 잘 풀립니다. 사랑하는 사람을 잘 챙기세요.",
+        "많이 움직여야 좋은 일이 생기고, 계획을 세운대로 행동하면 금전운이 좋으니 진행하세요.",
+        "금전운이 좋으니 바쁘게 움직이고, 주변 사람들의 신뢰를 받게 됩니다.",
+        "이번 주를 어떻게 잘 보내느냐가 중요합니다. 실수를 절대 하지 않도록 꼼꼼히 보세요.",
+        "자존심이 상하는 일이 생길 수 있으니 조심하시고, 웬만하면 참는 게 좋습니다.",
+        "운으로 눈 불리할 수 있으니 좀 긴장하고 노력하면 행운이 올 것입니다.",
+        "마음을 단단히 먹고, 사소한 불평이나 농담으로 인간관계를 버릴 수 있으니 늘 배려하세요.",
+        "정신적으로 중심을 잡기 힘든 주간이니, 말과 행동으로 오해를 만들지 말고 여유를 가지시면 됩니다.",
+        "시작은 거창하지만 마무리가 쉽지 않고, 신뢰를 잃을 수 있으니 말을 꼭 책임지세요.",
+      ];
+      fortune = document.getElementById("fortune");
+      let fortune_random = Math.floor(Math.random() * 12);
+      fortune.innerText = fortune_list[fortune_random];
+
+      let guessRandom = Math.floor(Math.random() * 50 + 1);
+      let guessCount = 0;
+
+      guessInput = document.getElementById("guess_input");
+      guessInfo = document.getElementById("guess_info");
+      first = document.getElementById("guess_first");
+      second = document.getElementById("guess_second");
+      third = document.getElementById("guess_third");
+      function makeInput() {
+        //console.dir(guessInput);
+        guessNum = guessInput.value;
+        guessCount += 1;
+        if (guessNum === "") guessInfo.innerText = "수를 입력해주세요!";
+        else if (guessNum < 0 || guessNum > 50) {
+          guessInfo.innerText = "1~50 사이의 수를 입력해주세요!";
+        } else if (guessNum > guessRandom)
+          guessInfo.innerText = "틀렸습니다! 더 낮은 수입니다!";
+        else if (guessNum < guessRandom)
+          guessInfo.innerText = "틀렸습니다! 더 높은 수입니다!";
+        else if (guessNum == guessRandom) {
+          if (first.innerText === "none" || guessCount < first.innerText) {
+            third.innerText = second.innerText;
+            second.innerText = first.innerText;
+            first.innerText = guessCount + "회 시도";
+            guessInfo.innerText = "정답입니다! 1등입니다!";
+          } else if (
+            second.innerText === "none" ||
+            guessCount < second.innerText
+          ) {
+            third.innerText = second.innerText;
+            second.innerText = guessCount + "회 시도";
+            guessInfo.innerText = "정답입니다! 2등입니다!";
+          } else if (
+            third.innerText === "none" ||
+            guessCount < third.innerText
+          ) {
+            third.innerText = guessCount + "회 시도";
+            guessInfo.innerText = "정답입니다! 3등입니다!";
+          } else {
+            guessInfo.innerText = "정답입니다! 랭크인은 실패입니다!";
+          }
+        }
+      }
+      function makeReset() {
+        guessRandom = Math.floor(Math.random() * 50 + 1);
+        guessInfo.innerText = "1~50 중의 수를 하나 골라주세요.";
+        guessInput.value = "";
+        guessCount = 0;
+      }
+      inputButton = document.getElementById("guess_input_button");
+      resetButton = document.getElementById("guess_reset");
+      inputButton.addEventListener("click", makeInput);
+      resetButton.addEventListener("click", makeReset);
+    </script>
+  </body>
+</html>
